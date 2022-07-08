@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/dark_grey_t</color>
+    <color name="colorAccent">@color/light_blue</color>
+
+    <color name="title_blue">@color/dark_blue</color>
+    <color name="text_color">@color/black</color>
+    <color name="sign_in_fg">#590D192C</color>
+    <color name="bottom_navigation_fill">#EBF8F8F8</color>
+    <color name="custom_text_input_divider">@color/stroke_grey</color>
+    <color name="divider_gray">@color/stroke_grey</color>
+    <color name="poll_fill">#EDF9FE</color>
+    <color name="poll_ratio_background">#E4E6E7</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white_t_50">#80ffffff</color>
+    <color name="milk_white">#FAFAFA</color>
+    <color name="stroke_grey">#E4E6E7</color>
+    <color name="light_grey">#AAAAAA</color>
+    <color name="grey">#BCBCBC</color>
+    <color name="dark_grey_t">#805F6369</color>
+    <color name="white_blue">#E3F7FF</color>
+    <color name="light_blue">#00B0F0</color>
+    <color name="blue">#194275</color>
+    <color name="dark_blue">#001E50</color>
+    <color name="grey_zircon">#F4F5F5</color>
+    <color name="grey_dove">#686868</color>
+    <color name="grey_raven">#6A767D</color>
+    <color name="red_orange">#FF3B30</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="error_color">@color/red_orange</color>
+</resources>
