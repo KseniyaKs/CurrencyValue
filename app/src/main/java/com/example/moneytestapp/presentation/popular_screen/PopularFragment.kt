@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -15,9 +14,6 @@ import com.example.moneytestapp.R
 import com.example.moneytestapp.domain.CurrencyModel
 import com.example.moneytestapp.presentation.CurrencyAdapter
 import com.example.moneytestapp.presentation.MainActivityViewModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingParameter
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingType
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

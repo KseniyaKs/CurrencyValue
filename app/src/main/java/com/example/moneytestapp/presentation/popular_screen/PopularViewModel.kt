@@ -1,21 +1,18 @@
 package com.example.moneytestapp.presentation.popular_screen
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moneytestapp.domain.CurrencyInteractor
 import com.example.moneytestapp.domain.CurrencyModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingParameter
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingType
+import com.example.moneytestapp.presentation.sorting_screen.SortingModel
+import com.example.moneytestapp.presentation.sorting_screen.SortingParameter
+import com.example.moneytestapp.presentation.sorting_screen.SortingType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Scope
 
 @HiltViewModel
 class PopularViewModel @Inject constructor(

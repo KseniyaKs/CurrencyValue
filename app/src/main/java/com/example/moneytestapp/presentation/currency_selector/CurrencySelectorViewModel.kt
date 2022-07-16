@@ -3,11 +3,8 @@ package com.example.moneytestapp.presentation.currency_selector
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.moneytestapp.R
 import com.example.moneytestapp.domain.CurrencyFullName
 import com.example.moneytestapp.domain.CurrencyInteractor
-import com.example.moneytestapp.domain.CurrencyModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingFragment
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableSharedFlow

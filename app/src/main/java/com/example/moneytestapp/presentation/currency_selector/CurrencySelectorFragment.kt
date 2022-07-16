@@ -13,12 +13,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.moneytestapp.R
-import com.example.moneytestapp.domain.CurrencyFullName
 import com.example.moneytestapp.presentation.MainActivityViewModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingFragment
+import com.example.moneytestapp.presentation.sorting_screen.SortingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.*
 
 
 @AndroidEntryPoint

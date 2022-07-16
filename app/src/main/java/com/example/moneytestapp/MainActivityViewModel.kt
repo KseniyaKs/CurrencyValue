@@ -1,15 +1,9 @@
 package com.example.moneytestapp.presentation
 
 import androidx.lifecycle.ViewModel
-import com.example.moneytestapp.domain.CurrencyFullName
-import com.example.moneytestapp.domain.CurrencyModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingParameter
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingType
+import com.example.moneytestapp.presentation.sorting_screen.SortingModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 

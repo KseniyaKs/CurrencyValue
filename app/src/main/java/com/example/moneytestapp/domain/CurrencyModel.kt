@@ -12,4 +12,9 @@ data class CurrencyFullName(
     val fullName: String
 )
 
+//data class Currency(
+//    val description: String,
+//    val code: String
+//)
+
 

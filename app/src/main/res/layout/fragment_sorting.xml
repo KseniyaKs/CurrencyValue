@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".presentation.currency_selector.sorting_screen.SortingFragment">
+    tools:context=".presentation.sorting_screen.SortingFragment">
 
 
     <RadioGroup
@@ -15,7 +15,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="По алфавиту" />
+            android:text="По алфавиту"
+            android:gravity="center"/>
 
         <RadioButton
             android:id="@+id/ascendingName"
@@ -30,9 +31,10 @@
             android:text="По убыванию" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="По значению" />
+            android:text="По значению"
+            android:gravity="center"/>
 
         <RadioButton
             android:id="@+id/ascendingValue"

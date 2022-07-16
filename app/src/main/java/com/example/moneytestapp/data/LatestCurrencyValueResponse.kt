@@ -12,7 +12,12 @@ data class LatestCurrencyValueResponse (
 )
 
 data class CurrencyNameListResponse (
-    @SerializedName("symbols") val symbols: Map<String, String>
+    @SerializedName("symbols") val symbols: Map<String, CurrencyName>
 )
+
+data class CurrencyName(
+    @SerializedName("description") val description: String,
+    @SerializedName("code") val code: String
+    )
 
 

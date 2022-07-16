@@ -14,8 +14,8 @@ interface CurrencyRepository {
     suspend fun getCurrency(): List<CurrencyFullName>
     suspend fun getLatestCurrencyValue(currency: String): List<CurrencyModel>
 
-    suspend fun currencyLocalSave(curencyModel: CurrencyModel)
-    suspend fun currencyLocalDelete(curencyModel: CurrencyModel)
+    suspend fun currencyLocalSave(currencyModel: CurrencyModel)
+    suspend fun currencyLocalDelete(currencyModel: CurrencyModel)
     suspend fun getLocalSaveCurrency(): List<CurrencyModel>
 }
 
@@ -30,13 +30,12 @@ class CurrencyRepositoryImpl @Inject constructor(
     override suspend fun getCurrency(): List<CurrencyFullName> {
         val response = responseMapper.map(api.getCurrency())
         return response.symbols.flatMap {
-            listOf(CurrencyFullName(it.key, it.value))
+            listOf(CurrencyFullName(it.key, it.value.description))
         }
     }
 
     override suspend fun getLatestCurrencyValue(currency: String): List<CurrencyModel> {
         val response = responseMapper.map(api.getLatestCurrencyValue(currency))
-//        val entity = getLocalSaveCurrency() //dataBase.getAll()
 
         val currencyList = response.rates.flatMap {
             listOf(CurrencyModel(it.key, it.value))

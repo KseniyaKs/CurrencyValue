@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moneytestapp.domain.CurrencyInteractor
 import com.example.moneytestapp.domain.CurrencyModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingModel
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingParameter
-import com.example.moneytestapp.presentation.currency_selector.sorting_screen.SortingType
+import com.example.moneytestapp.presentation.sorting_screen.SortingModel
+import com.example.moneytestapp.presentation.sorting_screen.SortingParameter
+import com.example.moneytestapp.presentation.sorting_screen.SortingType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

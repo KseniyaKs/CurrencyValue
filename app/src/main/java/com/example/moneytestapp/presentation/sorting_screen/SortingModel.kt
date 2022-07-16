@@ -1,4 +1,4 @@
-package com.example.moneytestapp.presentation.currency_selector.sorting_screen
+package com.example.moneytestapp.presentation.sorting_screen
 
 data class SortingModel(
     val type: SortingType?,

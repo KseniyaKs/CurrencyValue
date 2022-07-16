@@ -3,10 +3,12 @@
 
     <item
         android:id="@+id/actionPopular"
+        android:icon="@drawable/ic_menu_popular"
         android:title="@string/popular" />
 
     <item
         android:id="@+id/actionFavorite"
+        android:icon="@drawable/ic_menu_favorite"
         android:title="@string/favorite" />
 
 </menu>
