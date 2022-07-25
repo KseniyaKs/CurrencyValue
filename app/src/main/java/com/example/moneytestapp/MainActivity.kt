@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import com.example.moneytestapp.presentation.favorite_screen.FavoriteFragment
 import com.example.moneytestapp.presentation.popular_screen.PopularFragment
+import com.example.moneytestapp.presentation.popular_screen_new.PopularFragmentNew
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.actionPopular -> {
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fragmentContainer, PopularFragment.newInstance())
+                        .replace(R.id.fragmentContainer, PopularFragmentNew.newInstance())
                         .commit()
                     true
                 }
