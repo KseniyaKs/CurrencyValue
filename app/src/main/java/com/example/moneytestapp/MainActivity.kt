@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.actionPopular -> {
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fragmentContainer, PopularFragmentNew.newInstance())
+                        .replace(R.id.fragmentContainer, PopularFragment.newInstance())
                         .commit()
                     true
                 }

@@ -25,18 +25,18 @@ class PopularFragmentNew : Fragment() {
 //        (rootView as ViewGroup).setContent {
 //            Hello("Jetpack Compose")
 //        }
-        (rootView as ComposeView).apply {
+//        (rootView as ComposeView).apply {
 //            setContent {
 //                var functionalityNotAvailablePopupShown by remember { mutableStateOf(false) }
 //                if (functionalityNotAvailablePopupShown) {
 //                    FunctionalityNotAvailablePopup { functionalityNotAvailablePopupShown = false }
 //                }
-            setContent {
-                Text("Hello world!")
-            }
-        }
+//            setContent {
+//                Text("Hello world!")
+//            }
+//        }
 
-        return rootView
+        return ComposeView(requireContext())
     }
 
     companion object {
