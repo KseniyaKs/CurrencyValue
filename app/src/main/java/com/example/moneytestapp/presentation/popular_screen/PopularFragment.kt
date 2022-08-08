@@ -10,14 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneytestapp.MainActivityViewModelFactory
 import com.example.moneytestapp.R
 import com.example.moneytestapp.domain.CurrencyModel
 import com.example.moneytestapp.presentation.CurrencyAdapter
 import com.example.moneytestapp.presentation.MainActivityViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.moneytestapp.presentation.appComponent
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class PopularFragment : Fragment() {
 
     companion object {
@@ -31,8 +32,20 @@ class PopularFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_popular, container, false)
     }
 
-    private val viewModel: PopularViewModel by viewModels()
-    private val activityViewModel: MainActivityViewModel by activityViewModels()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireContext().appComponent.inject(this)
+
+    }
+
+
+    @Inject
+    lateinit var viewModelFactory: PopularViewModelFactory
+    private val viewModel: PopularViewModel by viewModels { viewModelFactory }
+
+    @Inject
+    lateinit var activityViewModelFactory: MainActivityViewModelFactory
+    private val activityViewModel: MainActivityViewModel by activityViewModels { activityViewModelFactory }
 
     private val adapter =
         CurrencyAdapter(onLikePressed = object : CurrencyAdapter.OnItemClickListener {
@@ -53,7 +66,6 @@ class PopularFragment : Fragment() {
 
         observeViewModel()
     }
-
 
     private fun observeViewModel() {
         lifecycleScope.launch {

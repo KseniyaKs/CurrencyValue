@@ -1,18 +1,21 @@
 package com.example.moneytestapp
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.moneytestapp.presentation.appComponent
 import com.example.moneytestapp.presentation.favorite_screen.FavoriteFragment
 import com.example.moneytestapp.presentation.popular_screen.PopularFragment
-import com.example.moneytestapp.presentation.popular_screen_new.PopularFragmentNew
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint()
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        applicationContext.appComponent.inject(this)
+
         setContentView(R.layout.activity_main)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
@@ -38,5 +41,4 @@ class MainActivity : AppCompatActivity() {
         }
         bottomNavigationView.selectedItemId = R.id.actionPopular
     }
-
 }

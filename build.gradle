@@ -3,14 +3,14 @@ buildscript {
     ext {
         compose_version = '1.2.0-rc02'
         kotlin_version = '1.6.10'
+        dagger_version = '2.43.1'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.40.1'
-        classpath "com.android.tools.build:gradle:7.2.1"
+        classpath "com.android.tools.build:gradle:7.2.2"
     }
 }
 

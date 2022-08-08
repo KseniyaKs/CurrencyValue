@@ -1,26 +1,25 @@
 package com.example.moneytestapp.presentation.favorite_screen
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.findFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moneytestapp.MainActivityViewModelFactory
 import com.example.moneytestapp.R
 import com.example.moneytestapp.domain.CurrencyModel
 import com.example.moneytestapp.presentation.CurrencyAdapter
 import com.example.moneytestapp.presentation.MainActivityViewModel
-import com.example.moneytestapp.presentation.currency_selector.CurrencySelectorFragment
-import com.example.moneytestapp.presentation.popular_screen.PopularViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.moneytestapp.presentation.appComponent
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-@AndroidEntryPoint
+
 class FavoriteFragment : Fragment() {
 
     companion object {
@@ -34,9 +33,19 @@ class FavoriteFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 
-    private val viewModel: FavoriteViewModel by viewModels()
-    private val activityViewModel: MainActivityViewModel by activityViewModels()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireContext().appComponent.inject(this)
 
+    }
+
+    @Inject
+    lateinit var viewModelFactory: FavoriteViewModelFactory
+    private val viewModel: FavoriteViewModel by viewModels { viewModelFactory }
+
+    @Inject
+    lateinit var activityViewModelFactory: MainActivityViewModelFactory
+    private val activityViewModel: MainActivityViewModel by activityViewModels { activityViewModelFactory }
 
     private val adapter =
         CurrencyAdapter(onLikePressed = object : CurrencyAdapter.OnItemClickListener {

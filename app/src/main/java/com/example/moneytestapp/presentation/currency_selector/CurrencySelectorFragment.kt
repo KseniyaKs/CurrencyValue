@@ -12,14 +12,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.moneytestapp.MainActivityViewModelFactory
 import com.example.moneytestapp.R
 import com.example.moneytestapp.presentation.MainActivityViewModel
+import com.example.moneytestapp.presentation.appComponent
 import com.example.moneytestapp.presentation.sorting_screen.SortingFragment
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-@AndroidEntryPoint
 class CurrencySelectorFragment : Fragment() {
 
     companion object {
@@ -33,12 +34,26 @@ class CurrencySelectorFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_currency_selector, container, false)
     }
 
-    private val viewModel: CurrencySelectorViewModel by viewModels()
-    private val activityViewModel: MainActivityViewModel by activityViewModels()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireContext().appComponent.inject(this)
 
+    }
+
+    @Inject
+    lateinit var viewModelFactory: CurrencySelectorViewModelFactory
+    private val viewModel: CurrencySelectorViewModel by viewModels { viewModelFactory }
+
+    @Inject
+    lateinit var activityViewModelFactory: MainActivityViewModelFactory
+    private val activityViewModel: MainActivityViewModel by activityViewModels { activityViewModelFactory }
 
     private val adapter by lazy {
-        ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, mutableListOf<String>())
+        ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            mutableListOf<String>()
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,7 +64,8 @@ class CurrencySelectorFragment : Fragment() {
         val sort = view.findViewById<Button>(R.id.sort_btn)
 
         sort.setOnClickListener {
-                SortingFragment.newInstance().show(childFragmentManager, SortingFragment::javaClass.name)
+            SortingFragment.newInstance()
+                .show(childFragmentManager, SortingFragment::javaClass.name)
         }
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -65,7 +81,7 @@ class CurrencySelectorFragment : Fragment() {
                 id: Long
             ) {
                 val currency = viewModel.currencyList.value[position]
-                 activityViewModel.setSelectedCurrency(currency.code)
+                activityViewModel.setSelectedCurrency(currency.code)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -84,7 +100,7 @@ class CurrencySelectorFragment : Fragment() {
     private fun observeViewModel() {
         lifecycleScope.launch {
             viewModel.currencyList.collect { list ->
-                adapter.addAll( list.map { it.code + " " + it.fullName })
+                adapter.addAll(list.map { it.code + " " + it.fullName })
                 adapter.notifyDataSetChanged()
             }
         }

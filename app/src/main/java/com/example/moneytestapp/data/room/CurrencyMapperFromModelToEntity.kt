@@ -1,11 +1,13 @@
 package com.example.moneytestapp.data.room
 
 import com.example.moneytestapp.domain.CurrencyModel
+import javax.inject.Inject
 
-interface CurrencyMapperFromModelToEntity{
+interface CurrencyMapperFromModelToEntity {
     fun mapFromModelToEntity(currencyModel: CurrencyModel): CurrencyEntity
 }
-class CurrencyMapperFromModelToEntityImpl: CurrencyMapperFromModelToEntity {
+
+class CurrencyMapperFromModelToEntityImpl @Inject constructor() : CurrencyMapperFromModelToEntity {
     override fun mapFromModelToEntity(currencyModel: CurrencyModel): CurrencyEntity {
         return CurrencyEntity(
             currency_name = currencyModel.code,

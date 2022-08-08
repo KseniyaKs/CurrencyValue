@@ -1,42 +1,29 @@
 package com.example.moneytestapp.di
 
-import android.app.Application
-import android.content.Context
-import com.example.moneytestapp.presentation.App
-import dagger.Binds
+import com.example.moneytestapp.MainActivity
+import com.example.moneytestapp.presentation.currency_selector.CurrencySelectorFragment
+import com.example.moneytestapp.presentation.favorite_screen.FavoriteFragment
+import com.example.moneytestapp.presentation.popular_screen.PopularFragment
 import dagger.Component
-import dagger.Module
-import dagger.android.AndroidInjectionModule
-import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
-//@Singleton
-//@Component(
-//    modules = [
-////        AndroidInjectionModule::class,
-////        AppModule::class,
-////        CommonModule::class,
-////        SessionModule::class,
-//        ApiModule::class,
-//        DataModule::class,
-//        DomainModule::class,
-////        MapperModule::class,
-////        ActivityModule::class,
-////        ServiceModule::class
-//    ]
-//)
-//internal interface AppComponent : AndroidInjector<App> {
-//    @Component.Factory
-//    abstract class AndroidInjectorBuilder : AndroidInjector.Factory<App>
-//}
+@Component(
+    modules = [
+        AppModule::class,
+        ApiModule::class,
+        DataBaseModule::class,
+        DataModule::class,
+        DomainModule::class,
+        ViewModelModule::class
+    ]
+)
+@Singleton
+interface AppComponent {
+    fun inject(fragment: PopularFragment)
 
-//@Module
-//interface AppModule {
-//
-//    @Binds
-//    fun bindApplication(app: App): Application
-//
-//    @Binds
-//    fun bindContext(app: App): Context
-//
-//}
+    fun inject(fragment: FavoriteFragment)
+
+    fun inject(fragment: CurrencySelectorFragment)
+
+    fun inject(activity: MainActivity)
+}

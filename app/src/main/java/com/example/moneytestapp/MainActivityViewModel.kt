@@ -2,12 +2,10 @@ package com.example.moneytestapp.presentation
 
 import androidx.lifecycle.ViewModel
 import com.example.moneytestapp.presentation.sorting_screen.SortingModel
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
-@HiltViewModel
 class MainActivityViewModel @Inject constructor() : ViewModel() {
 
     private val _currencyName = MutableStateFlow<String?>(null)

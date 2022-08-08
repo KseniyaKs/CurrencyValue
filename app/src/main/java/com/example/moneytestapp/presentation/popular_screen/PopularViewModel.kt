@@ -8,13 +8,15 @@ import com.example.moneytestapp.domain.CurrencyModel
 import com.example.moneytestapp.presentation.sorting_screen.SortingModel
 import com.example.moneytestapp.presentation.sorting_screen.SortingParameter
 import com.example.moneytestapp.presentation.sorting_screen.SortingType
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
+
 class PopularViewModel @Inject constructor(
     val interactor: CurrencyInteractor
 ) : ViewModel() {

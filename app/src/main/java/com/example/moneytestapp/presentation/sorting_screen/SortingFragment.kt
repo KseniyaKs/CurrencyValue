@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
 import com.example.moneytestapp.R
 import com.example.moneytestapp.presentation.MainActivityViewModel
+import javax.inject.Inject
 
 
 class SortingFragment : DialogFragment() {
@@ -27,7 +27,8 @@ class SortingFragment : DialogFragment() {
         fun newInstance() = SortingFragment()
     }
 
-    private val activityViewModel: MainActivityViewModel by activityViewModels()
+    @Inject
+    lateinit var activityViewModel: MainActivityViewModel //by activityViewModels()
 
     override fun onResume() {
         super.onResume()
