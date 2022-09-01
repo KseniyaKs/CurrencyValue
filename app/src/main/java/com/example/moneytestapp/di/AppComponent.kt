@@ -14,7 +14,8 @@ import javax.inject.Singleton
         DataBaseModule::class,
         DataModule::class,
         DomainModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+//        NotifyWorkModule::class
     ]
 )
 @Singleton

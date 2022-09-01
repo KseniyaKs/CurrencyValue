@@ -9,6 +9,7 @@ import com.example.moneytestapp.presentation.sorting_screen.SortingModel
 import com.example.moneytestapp.presentation.sorting_screen.SortingParameter
 import com.example.moneytestapp.presentation.sorting_screen.SortingType
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -31,13 +32,13 @@ class PopularViewModel @Inject constructor(
     }
 
     fun loadLatestCurrency(currency: String) {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(Dispatchers.Default + handler) {
             _currencyList.value = interactor.getLatestCurrency(currency)
         }
     }
 
     fun onLikePressed(currencyModel: CurrencyModel) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             currencyModel.isLike = true
             _currency.emit(currencyModel)
 

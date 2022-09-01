@@ -42,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerVersion kotlin_version
@@ -64,7 +65,6 @@ dependencies {
     def retrofitVersion = '2.9.0'
     def okHttpVersion = '4.9.1'
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
@@ -138,7 +138,9 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
+    def work_version = "2.7.1"
     implementation "androidx.window:window:1.0.0"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 }
 
 kapt {

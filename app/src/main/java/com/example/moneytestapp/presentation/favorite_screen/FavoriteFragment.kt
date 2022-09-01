@@ -9,9 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.moneytestapp.MainActivityViewModelFactory
-import com.example.moneytestapp.R
+import com.example.moneytestapp.databinding.FragmentFavoriteBinding
 import com.example.moneytestapp.domain.CurrencyModel
 import com.example.moneytestapp.presentation.CurrencyAdapter
 import com.example.moneytestapp.presentation.MainActivityViewModel
@@ -24,19 +23,6 @@ class FavoriteFragment : Fragment() {
 
     companion object {
         fun newInstance() = FavoriteFragment()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireContext().appComponent.inject(this)
-
     }
 
     @Inject
@@ -54,13 +40,29 @@ class FavoriteFragment : Fragment() {
             }
         })
 
+    private lateinit var binding: FragmentFavoriteBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        requireContext().appComponent.inject(this)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        return binding!!.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recycler = view.findViewById<RecyclerView>(R.id.recycler)
-
-        recycler?.layoutManager = LinearLayoutManager(requireContext())
-        recycler?.adapter = adapter
+        binding.apply {
+            recycler?.layoutManager = LinearLayoutManager(requireContext())
+            recycler?.adapter = adapter
+        }
 
         observeViewModel()
     }
